@@ -7,3 +7,17 @@
     width: 100%;
     
 }
+
+.navbar-brand {
+    font-weight: 700;
+}
+
+.btn-primary {
+    background-color: crimson;
+    border-color: crimson;
+}
+
+.card-body {
+    height: 200;
+    width: 200;
+}
