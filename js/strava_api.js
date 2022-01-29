@@ -9,8 +9,8 @@ const authLink = "https://www.strava.com/oauth/authorize";
 var activityType = document.getElementById("activityType").value; //needs an html drop down menu with id="activityType" selection with two values "running" and "riding"
 var minClimb = document.getElementById("minClimb").value; // minClimb needs a limited number input field <input type="number" id="minClimb" min="1" max="3">
 // must be limited to 3 since maximum will be from 2 to 4.
-var maxClimb = 1; // same as above: <input type="number" id="maxClimb" min="2" max="4">
-// temp values for latitudes and longitudes, will have to be pulled from googlemaps apit output
+var maxClimb = document.getElementById("maxClimb").value; // same as above: <input type="number" id="maxClimb" min="2" max="4">
+// temp values for latitudes and longitudes, will have to be pulled from googlemaps api output
 var latSW = 47.615;
 var lonSW = -122.235;
 var latNE = 47.655;
