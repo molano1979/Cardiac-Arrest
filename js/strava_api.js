@@ -15,7 +15,7 @@ var latSW = 47.615;
 var lonSW = -122.235;
 var latNE = 47.655;
 var lonNE = -122.205;
-// temp ^
+// temp
 var boundsArr = [latSW, lonSW, latNE, lonNE]; // the actual values will have to be recieved from google api
 
 function getSegments(response) {
