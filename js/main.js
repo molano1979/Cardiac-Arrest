@@ -13,15 +13,19 @@
 // }
 
 function initMap() {
-  const myLatlng = { lat: -25.363, lng: 131.044 };
+  const origin = { lat: 47.615, lng: -122.235 };
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 4,
-    center: myLatlng,
+    center: origin,
   });
   // Create the initial InfoWindow.
   let infoWindow = new google.maps.InfoWindow({
-    content: "Click the map to get Lat/Lng!",
-    position: myLatlng,
+    content: "Click on the map to set the SW corner of the search window",
+    position: origin,
+  });
+
+  map.addListener("click", (e) => {
+    placeMarkerAndPanTo(e.latLng, map);
   });
 
   infoWindow.open(map);
@@ -36,6 +40,18 @@ function initMap() {
     infoWindow.setContent(
       JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
     );
-    infoWindow.open(map);
+    //this is the string
+    console.log("this is latitude and longitude string of the click event");
+    // we need to get the latitude and longitude stored in latSW and lonSW variables for the strava api to use.
+    console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2));
+    // { lat: -25.363882, lng: 131.044922 } =
   });
+
+  function placeMarkerAndPanTo(latLng, map) {
+    new google.maps.Marker({
+      position: latLng,
+      map: map,
+    });
+    map.panTo(latLng);
+  }
 }
