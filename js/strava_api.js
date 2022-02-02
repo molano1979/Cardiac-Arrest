@@ -3,7 +3,7 @@
 const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
-var access_token = "7a2502d1bae84411129458caefa8838a5e59bbdf";
+var access_token = "813fbf6d3910e957b11e2936c014bf19254c3f14";
 const authLink = "https://www.strava.com/oauth/authorize";
 
 var activityType = document.getElementById("activityType").value; //needs an html drop down menu with id="activityType" selection with two values "running" and "riding"
@@ -23,7 +23,7 @@ function getSegments(response) {
   fetch(segmentsUrl, {
     method: "GET",
     headers: {
-      Authorization: "Bearer 7a2502d1bae84411129458caefa8838a5e59bbdf",
+      Authorization: `Bearer ${access_token}`,
     },
   })
     .then((response) => response.json())
