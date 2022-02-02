@@ -3,7 +3,7 @@
     padding: 0;
 }
 #map {
-    height: 500px;
+    height: 100px;
     width: 100%;
     
 }
@@ -21,3 +21,4 @@
     height: 200;
     width: 200;
 }
+
