@@ -18,12 +18,12 @@ function initMap() {
     lng: -122.235
   };
   const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 4,
+    zoom: 14,
     center: origin,
   });
   // Create the initial InfoWindow.
   let infoWindow = new google.maps.InfoWindow({
-    content: "Click on the map to set the SW corner of the search window",
+    content: "Click on the map to set the corners of the search boundary",
     position: origin,
   });
 
@@ -62,3 +62,10 @@ function initMap() {
   //   map.panTo(latLng);
   // }
 }
+// function toggleBounce() {
+//   if (marker.getAnimation() !== null) {
+//     marker.setAnimation(null);
+//   } else {
+//     marker.setAnimation(google.maps.Animation.BOUNCE);
+//   }
+// }

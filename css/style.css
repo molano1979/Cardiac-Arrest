@@ -4,9 +4,10 @@
 }
 
 #map {
-   height: 75vh;
+    height: 60vh;
     width: 100%;
-
+    overflow: hidden;
+    position: absolute;
 }
 
 .navbar-brand {
@@ -22,4 +23,3 @@
     height: 200;
     width: 200;
 }
-
