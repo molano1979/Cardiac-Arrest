@@ -3,20 +3,41 @@
 const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
+// access token must be flexible, as it gets refreshed every 6 hours
 var access_token = "3d48c8b06140973077a646386de3417b7582e13b";
 const authLink = "https://www.strava.com/oauth/authorize";
+const refreshLink = "https://www.strava.com/oauth/token";
+///////////////////////////////
+//refreshing the access_token//
+///////////////////////////////
+function reAuthorize() {
+  fetch(refreshLink, {
+    method: "post",
+    headers: {
+      Accept: "application/json, text/plain, */*",
+      "Content-Type": "application/json",
+    },
 
-var activityType = document.getElementById("activityType").value; //needs an html drop down menu with id="activityType" selection with two values "running" and "riding"
-var minClimb = document.getElementById("minClimb").value; // minClimb needs a limited number input field <input type="number" id="minClimb" min="1" max="3">
-// must be limited to 3 since maximum will be from 2 to 4.
-var maxClimb = document.getElementById("maxClimb").value; // same as above: <input type="number" id="maxClimb" min="2" max="4">
-// temp values for latitudes and longitudes, will have to be pulled from googlemaps api output
+    body: JSON.stringify({
+      client_id: `${clientID}`,
+      client_secret: `${secretID}`,
+      refresh_token: `${refreshToken}`,
+      grant_type: "refresh_token",
+    }),
+  }).then((res) => res.json());
+}
+reAuthorize();
+////////////////////////
+/// you may proceed ///
+///////////////////////
+const activityType = document.getElementById("activityType").value;
+const minClimb = document.getElementById("minClimb").value;
+const maxClimb = document.getElementById("maxClimb").value;
 var latSW = 47.615;
 var lonSW = -122.235;
 var latNE = 47.655;
 var lonNE = -122.205;
-// temp
-var boundsArr = [latSW, lonSW, latNE, lonNE]; // the actual values will have to be recieved from google api
+const boundsArr = [latSW, lonSW, latNE, lonNE];
 
 function getSegments(response) {
   const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${access_token}`;
