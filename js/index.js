@@ -15,57 +15,38 @@
 function initMap() {
   const origin = {
     lat: 47.615,
-    lng: -122.235
+    lng: -122.235,
   };
   const map = new google.maps.Map(document.getElementById("map"), {
     zoom: 14,
     center: origin,
   });
   // Create the initial InfoWindow.
-  let infoWindow = new google.maps.InfoWindow({
-    content: "Click on the map to set the corners of the search boundary",
-    position: origin,
+
+  // google.maps.event.addListener(map, "bounds_changed", function () {
+  //   var bounds = map.getBounds();
+  //   var ne = bounds.getNorthEast();
+  //   var sw = bounds.getSouthWest();
+  //   boundsArr = [sw, ne];
+  // });
+  map.addListener("click", (e) => {
+    placeMarkerAndPanTo(e.latLng, map);
   });
 
-  google.maps.event.addListener(map, 'bounds_changed', function () {
-    var bounds = map.getBounds();
-    var ne = bounds.getNorthEast();
-    var sw = bounds.getSouthWest();
-    boundsArr = [sw, ne];
-
-  });
-
-  infoWindow.open(map);
-  // Configure the click listener.
-  map.addListener("click", (mapsMouseEvent) => {
-    // Close the current InfoWindow.
-    infoWindow.close();
-    // Create a new InfoWindow.
-    infoWindow = new google.maps.InfoWindow({
-      position: mapsMouseEvent.latLng,
+  function placeMarkerAndPanTo(latLng, map) {
+    new google.maps.Marker({
+      position: latLng,
+      map: map,
+      animation: google.maps.Animation.BOUNCE,
     });
-    infoWindow.setContent(
-      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
-    );
-    //this is the string
-    console.log("this is latitude and longitude string of the click event");
-    // we need to get the latitude and longitude stored in latSW and lonSW variables for the strava api to use.
-    console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2));
-    // { lat: -25.363882, lng: 131.044922 } =
-  });
-
-  // function placeMarkerAndPanTo(latLng, map) {
-  //   new google.maps.Marker({
-  //     position: latLng,
-  //     map: map,
-  //   });
-  //   map.panTo(latLng);
-  // }
+    map.panTo(latLng);
+    JSON.stringify(latLng.toJSON(), null, 2);
+    var clickLocation = JSON.parse(JSON.stringify(latLng.toJSON()));
+    const latSW = clickLocation.lat;
+    const lonSW = clickLocation.lng;
+    console.log("SW latitude coordinate", latSW);
+    console.log("SW longitude coordinate", lonSW);
+    localStorage.setItem("latSW", latSW);
+    localStorage.setItem("lonSW", lonSW);
+  }
 }
-// function toggleBounce() {
-//   if (marker.getAnimation() !== null) {
-//     marker.setAnimation(null);
-//   } else {
-//     marker.setAnimation(google.maps.Animation.BOUNCE);
-//   }
-// }

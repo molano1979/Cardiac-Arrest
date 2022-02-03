@@ -3,7 +3,7 @@
 const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
-var access_token = "813fbf6d3910e957b11e2936c014bf19254c3f14";
+var access_token = "3d48c8b06140973077a646386de3417b7582e13b";
 const authLink = "https://www.strava.com/oauth/authorize";
 
 var activityType = document.getElementById("activityType").value; //needs an html drop down menu with id="activityType" selection with two values "running" and "riding"
