@@ -1,6 +1,7 @@
 let map;
 let markers = [];
 var callback_results;
+var boundsArr = [];
 
 function initMap() {
   const origin = {
@@ -64,6 +65,22 @@ function initMap() {
     }
   }
 
+  google.maps.event.addListener(map, 'bounds_changed', () => {
+    var bounds = map.getBounds();
+    var ne = bounds.getNorthEast();
+    var sw = bounds.getSouthWest();
+    mapBounds = {
+      'north': ne.lat(),
+      'east': ne.lng(),
+      'south': sw.lat(),
+      'west': sw.lng()
+    }
+    localStorage.setItem('bounds', JSON.stringify(mapBounds))
+    boundsArr = [mapBounds.north, mapBounds.east, mapBounds.south, mapBounds.west];
+    boundsArrString = boundsArr.toString();
+    console.log(boundsArr)
+  })
+
   function setMapOnAll(map) {
     for (let i = 0; i < markers.length; i++) {
       markers[i].setMap(map);
@@ -80,3 +97,9 @@ function initMap() {
 
   // closing argument
 }
+
+// document.onload() = {
+//   fetch(authorize, 'https://www.strava.com/oauth/authorize') {
+
+//   }
+// }
