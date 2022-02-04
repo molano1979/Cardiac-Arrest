@@ -19,6 +19,9 @@
       <img src="LogoPlaceHolder.PNG" width="30" height="30" class="d-inline-block align-top" alt="">
       Cardiac Arrest
     </a>
+    <!-- button needs styling/formatting -->
+    <input id="delete-markers" type="button" value="Clear Map" />
+    <!-- it removes the markers and coordinates from the map -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
       User Input
     </button>
@@ -33,6 +36,7 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLongTitle">Cardiac Arrest Search Options</h5>
+
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
@@ -44,13 +48,12 @@
             <option value="riding">Riding</option>
           </select> <br> Minimum climb rating:<input type="number" id="minClimb" value="1" min="1" max="3">
           <br> Maximum climb rating:<input type="number" id="maxClimb" value="2" min="2" max="4">
-          <br><button id="submit" onclick='getSegments()'>Save changes</button>
+          <br><button id="submit" onclick='getSegments()'>Search</button>
 
 
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <!-- <button type="button" class="btn btn-primary">Save changes</button> -->
         </div>
       </div>
     </div>

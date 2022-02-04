@@ -1,71 +1,82 @@
-//the lat and lng I was trying to enter are for Seattle lat 47.606209 lng -122.332069. Not sure how to enter them properly.
-
-// function initMap(){
-//     var location = {lat: -25.363, lng: 131.044};
-//     var map = new google.maps.Map(document.getElementById("map"), {
-//         zoom: 4,
-//         center: location
-//     });
-// var marker = new google.maps.Marker([
-//     position: location,
-//     map: map
-// ]);
-// }
+let map;
+let markers = [];
+var callback_results;
 
 function initMap() {
   const origin = {
     lat: 47.615,
-    lng: -122.235
+    lng: -122.235,
   };
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 14,
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
     center: origin,
+    mapTypeId: "terrain",
   });
-  // Create the initial InfoWindow.
-  let infoWindow = new google.maps.InfoWindow({
-    content: "Click on the map to set the corners of the search boundary",
-    position: origin,
+  map.addListener("click", (event) => {
+    addMarker(event.latLng);
   });
+  document
+    .getElementById("delete-markers")
+    .addEventListener("click", deleteMarkers);
+  // to delete markers We need a button: <input id="delete-markers" type="button" value="Delete Markers">
+  function addMarker(position) {
+    if (markers.length == 0) {
+      const marker = new google.maps.Marker({
+        position,
+        map,
+        animation: google.maps.Animation.BOUNCE,
+      });
+      markers.push(marker);
+    } else if (markers.length == 1) {
+      const marker = new google.maps.Marker({
+        position,
+        map,
+        animation: google.maps.Animation.BOUNCE,
+      });
+      markers.push(marker);
 
-  google.maps.event.addListener(map, 'bounds_changed', function () {
-    var bounds = map.getBounds();
-    var ne = bounds.getNorthEast();
-    var sw = bounds.getSouthWest();
-    boundsArr = [sw, ne];
+      console.log("SW", markers[0].position.toJSON());
+      console.log("NE", markers[1].position.toJSON());
 
-  });
+      var southWest = JSON.parse(JSON.stringify(markers[0].position.toJSON()));
+      const latSW = southWest.lat;
+      const lonSW = southWest.lng;
 
-  infoWindow.open(map);
-  // Configure the click listener.
-  map.addListener("click", (mapsMouseEvent) => {
-    // Close the current InfoWindow.
-    infoWindow.close();
-    // Create a new InfoWindow.
-    infoWindow = new google.maps.InfoWindow({
-      position: mapsMouseEvent.latLng,
-    });
-    infoWindow.setContent(
-      JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2)
-    );
-    //this is the string
-    console.log("this is latitude and longitude string of the click event");
-    // we need to get the latitude and longitude stored in latSW and lonSW variables for the strava api to use.
-    console.log(JSON.stringify(mapsMouseEvent.latLng.toJSON(), null, 2));
-    // { lat: -25.363882, lng: 131.044922 } =
-  });
+      var northEast = JSON.parse(JSON.stringify(markers[1].position.toJSON()));
+      const latNE = northEast.lat;
+      const lonNE = northEast.lng;
 
-  // function placeMarkerAndPanTo(latLng, map) {
-  //   new google.maps.Marker({
-  //     position: latLng,
-  //     map: map,
-  //   });
-  //   map.panTo(latLng);
-  // }
+      console.log("SW latitude coordinate", latSW);
+      console.log("SW longitude coordinate", lonSW);
+
+      console.log("NE latitude coordinate", latNE);
+      console.log("NE longitude coordinate", lonNE);
+
+      localStorage.setItem("latSW", latSW);
+      localStorage.setItem("lonSW", lonSW);
+      localStorage.setItem("latNE", latNE);
+      localStorage.setItem("lonNE", lonNE);
+    } else {
+      console.log(
+        "Maximum amount of markers has been reached:",
+        markers.length
+      );
+    }
+  }
+
+  function setMapOnAll(map) {
+    for (let i = 0; i < markers.length; i++) {
+      markers[i].setMap(map);
+    }
+  }
+  function hideMarkers() {
+    setMapOnAll(null);
+  }
+
+  function deleteMarkers() {
+    hideMarkers();
+    markers = [];
+  }
+
+  // closing argument
 }
-// function toggleBounce() {
-//   if (marker.getAnimation() !== null) {
-//     marker.setAnimation(null);
-//   } else {
-//     marker.setAnimation(google.maps.Animation.BOUNCE);
-//   }
-// }
