@@ -19,12 +19,48 @@
       <img src="LogoPlaceHolder.PNG" width="30" height="30" class="d-inline-block align-top" alt="">
       Cardiac Arrest
     </a>
+   
+    <!-- Start of Modal with information about climb categories in Strava-->
+<button id="modalBtn" class="button">About Strava Climb</button>
+<div id="simpleModal" class="modal">
+  <div class="modal-content">
+    <span class="closeBtn">&times;</span>
+    <p1><a href="https://en.wikipedia.org/wiki/Strava"> Strava </a>is an American internet service for tracking human exercise which incorporates social network features. It is mostly used for cycling and running using GPS data. </p1><br>
+    <p1><b>Climb Categorization</b></p1>
+      <p1>The Strava climb categorization is similar to how the UCI categorizes climbs but with some modifications. When a climb is categorized, for the Tour de France for example, there is a subjective component to the categorization. If a climb is at the end of the stage it could get a tougher category than if it was earlier in the stage. Strava's method is objective, so if a climb is a category 1 climb it will always be a category 1.</p1> <br>
+
+      <p2><b>Determining Climb Categories</b></p2>
+      A segment can be categorized as a climb on Strava if it meets the following criteria:<br>
+      
+      <ul>
+      <li>The average gradient is at least 3.0% </li>
+      
+      <li>The segment distance is at least 300 meters. </li>
+      
+      <li>The length of the climb (in meters) multiplied by the grade of the climb is greater than 8,000.</li><br>
+
+      You will see that a segment is categorized by the number on both the segment page and at the list of segments on your activity page. The categories are broken down as follows:<br>
+      </ul>
+      <ul>
+      <li>Cat 4 > 8000</li>
+      <li>Cat 3 > 16000</li>
+      <li>Cat 2 > 32000</li>
+      <li>Cat 1 > 64000</li>
+      <li>HC (Hors Categorie) > 80000</li>
+      </ul>
+      <img src="https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png" alt="Hawk Hill image example"> 
+    </div>
+
+
+
+
+</div>
+
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
       User Input
     </button>
-  </nav>
-  <!--Start of Modal-->
 
+  <!--Start of Modal-->
 
   <!-- Modal -->
   <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
@@ -57,7 +93,9 @@
 
   </div>
 
-  <!--End of Modal-->
+ <!--End of Modal-->
+  </nav>
+
   <div id="map"></div>
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly"
@@ -72,6 +110,7 @@
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
   </script>
   <script src="js/strava_api.js"></script>
+  <script src="js/strava-modal.js"></script>
 
 </body>
 

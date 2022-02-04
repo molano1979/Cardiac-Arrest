@@ -23,3 +23,50 @@
     height: 200;
     width: 200;
 }
+
+/*start of Diana's climb categorization modal*/
+
+.button{
+    padding:1em 2em;
+    border: 0;
+    background-color: lightsteelblue;
+    color: rgb(41, 39, 39);
+    border-radius: 8px;
+}
+
+
+.button:hover{
+    background: darkgrey;
+}
+
+#simpleModal{
+    display:none;
+    position: fixed;
+    z-index:1;
+    top: 0;
+    height:100%;
+    width: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content{
+    background-color: lightgray;
+    margin: 40% auto;
+    padding: 40px;
+    width: 40%;
+    box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2),0 7px 20px rgba(0,0,0,0.17); 
+}
+.closeBtn{
+color: lightgray;
+float: right;
+font-size: 30px;
+}
+.closeBtn:hover,.closeBtn:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*end of Diana's climb categorization modal*/
+
