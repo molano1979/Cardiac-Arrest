@@ -4,39 +4,16 @@ const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
-var access_token = "3d48c8b06140973077a646386de3417b7582e13b";
+var access_token = "5a34bc31a994f35c24f0a10f2d5c196eb331c734";
 const authLink = "https://www.strava.com/oauth/authorize";
-const refreshLink = "https://www.strava.com/oauth/token";
-///////////////////////////////
-//refreshing the access_token//
-///////////////////////////////
-function reAuthorize() {
-  fetch(refreshLink, {
-    method: "post",
-    headers: {
-      Accept: "application/json, text/plain, */*",
-      "Content-Type": "application/json",
-    },
 
-    body: JSON.stringify({
-      client_id: `${clientID}`,
-      client_secret: `${secretID}`,
-      refresh_token: `${refreshToken}`,
-      grant_type: "refresh_token",
-    }),
-  }).then((res) => res.json());
-}
-reAuthorize();
-////////////////////////
-/// you may proceed ///
-///////////////////////
 const activityType = document.getElementById("activityType").value;
 const minClimb = document.getElementById("minClimb").value;
 const maxClimb = document.getElementById("maxClimb").value;
-var latSW = 47.615;
-var lonSW = -122.235;
-var latNE = 47.655;
-var lonNE = -122.205;
+var latSW = localStorage.getItem("latSW");
+var lonSW = localStorage.getItem("lonSW");
+var latNE = localStorage.getItem("latNE");
+var lonNE = localStorage.getItem("lonNE");
 const boundsArr = [latSW, lonSW, latNE, lonNE];
 
 function getSegments(response) {
@@ -50,6 +27,10 @@ function getSegments(response) {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
+      // for i
+      console.log("segment", data.segments[0].name);
+      console.log("segment", data.segments[0].avg_grade);
+      console.log("segment", data.segments[0].distance);
     })
     .catch((error) => {
       console.error("Error:", error);
