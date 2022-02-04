@@ -25,12 +25,13 @@
 
     <!-- Start of Modal with information about climb categories in Strava-->
     <button id="modalBtn" class="button">About Strava Climb</button>
-    <div id="simpleModal" class="modal">
-      <div class="modal-content">
+    <div id="simpleModal" class="modal fade">
+      <div class="modal-content modalD">
         <span class="closeBtn">&times;</span>
-        <p1><a href="https://en.wikipedia.org/wiki/Strava"> Strava </a>is an American internet service for tracking
-          human exercise which incorporates social network features. It is mostly used for cycling and running using GPS
-          data. </p1><br>
+        <p1><a href="https://en.wikipedia.org/wiki/Strava"> Strava </a>is the social network for athletes.
+
+          Record an activity and it goes to your Strava feed, where your friends and followers can share their own races
+          and workouts, give kudos to great performances and leave comments on each other's activities.</p1><br>
         <p1><b>Climb Categorization</b></p1>
         <p1>The Strava climb categorization is similar to how the UCI categorizes climbs but with some modifications.
           When a climb is categorized, for the Tour de France for example, there is a subjective component to the
@@ -92,12 +93,13 @@
               <option value="riding">Riding</option>
             </select> <br> Minimum climb rating:<input type="number" id="minClimb" value="2" min="2" max="4">
             <br> Maximum climb rating:<input type="number" id="maxClimb" value="1" min="1" max="3">
-            <br><button id="submit" onclick='getSegments()'>Search</button>
+            <!-- <br><button id="submit" onclick='getSegments()'>Search</button> -->
 
 
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="submit"
+              onclick='getSegments()'>Search and Close</button>
           </div>
         </div>
       </div>
