@@ -1,5 +1,5 @@
 // http://localhost/exchange_token?state=&code=33e1b24614158d76f9e9be3335dddec19a49268f&scope=read,read_all
-import { Strava } from 'strava';
+import { Strava } from 'strava-v3';
 
 const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
@@ -12,20 +12,12 @@ const callBackDomain = "http://localhost/";
 // const callBackDomain = "https://molano1979.github.io/Cardiac-Arrest/";
 const authLink = "https://www.strava.com/oauth/authorize?scope=read,activity:read_all,profile:read_all,read_all&client_id=" + clientID + "&response_type=code&redirect_uri=" + callBackDomain + "exchange_token&approval_prompt=force";
 
-const strava = new Strava({
-  client_id: clientID,
-  client_secret: secretID,
-  refresh_token: refreshToken,
-});
-;(async () => {
-  try {
-    const activities = await strava.activities.getLoggedInAthleteActivities()
-    console.log(activities)
-  } catch (error) {
-    console.log(error)
-  }
-})()
-const activityType = document.getElementById("activityType").value;
+const strava = require('strava-v3')
+strava.config({});
+const payload = await strava.athlete.get({});
+console.log(payload)
+
+  const activityType = document.getElementById("activityType").value;
 const minClimb = document.getElementById("minClimb").value;
 const maxClimb = document.getElementById("maxClimb").value;
 // var boundsArr = {};
