@@ -53,7 +53,7 @@ function getSegments(response) {
           </div>`;
         segmentList.push(hillsCard);
       }
-
+      //
       $("#hillCards").html(segmentList.join(""));
     })
     .catch((error) => {
