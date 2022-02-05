@@ -2,12 +2,10 @@
 
 ## Description
 
-"An athlete wants to find difficult hills to run or ride in different areas."
-
 Published: https://molano1979.github.io/Cardiac-Arrest/
 
 ```
-"An athlete wants to find difficult hills to run or ride in different areas."
+An athlete wants to find difficult hills to run or ride in different areas.
 ```
 
 ### Based on google and strava APIs:
