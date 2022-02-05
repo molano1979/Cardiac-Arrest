@@ -1,6 +1,7 @@
 let map;
 let markers = [];
 var callback_results;
+var south, west, north, east = '';
 
 function initMap() {
   // const directionsService = new google.maps.DirectionsService();
@@ -56,27 +57,20 @@ function addMarker(position) {
     });
     markers.push(marker);
 
-    console.log("SW", markers[0].position.toJSON());
-    console.log("NE", markers[1].position.toJSON());
+    boundsJSON = {
+      south: markers[0].position.toJSON().lat,
+      west: markers[0].position.toJSON().lng,
+      north: markers[1].position.toJSON().lat,
+      east: markers[1].position.toJSON().lng
+    }
 
-    var southWest = JSON.parse(JSON.stringify(markers[0].position.toJSON()));
-    const latSW = southWest.lat;
-    const lonSW = southWest.lng;
+    console.log("S latitude coordinate", boundsJSON.south);
+    console.log("W longitude coordinate", boundsJSON.west);
 
-    var northEast = JSON.parse(JSON.stringify(markers[1].position.toJSON()));
-    const latNE = northEast.lat;
-    const lonNE = northEast.lng;
+    console.log("N latitude coordinate", boundsJSON.north);
+    console.log("E longitude coordinate", boundsJSON.east);
 
-    console.log("SW latitude coordinate", latSW);
-    console.log("SW longitude coordinate", lonSW);
-
-    console.log("NE latitude coordinate", latNE);
-    console.log("NE longitude coordinate", lonNE);
-
-    localStorage.setItem("latSW", latSW);
-    localStorage.setItem("lonSW", lonSW);
-    localStorage.setItem("latNE", latNE);
-    localStorage.setItem("lonNE", lonNE);
+    localStorage.setItem("boundsJSON", JSON.stringify(boundsJSON));
   } else {
     console.log("Maximum amount of markers has been reached:", markers.length);
   }

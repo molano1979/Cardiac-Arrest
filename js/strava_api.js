@@ -10,11 +10,11 @@ const authLink = "https://www.strava.com/oauth/authorize";
 const activityType = document.getElementById("activityType").value;
 const minClimb = document.getElementById("minClimb").value;
 const maxClimb = document.getElementById("maxClimb").value;
-const latSW = localStorage.getItem("latSW");
-const lonSW = localStorage.getItem("lonSW");
-const latNE = localStorage.getItem("latNE");
-const lonNE = localStorage.getItem("lonNE");
-const boundsArr = [latSW, lonSW, latNE, lonNE];
+var south = JSON.parse(localStorage.getItem('boundsJSON')).south;
+var west = JSON.parse(localStorage.getItem('boundsJSON')).west;
+var north = JSON.parse(localStorage.getItem('boundsJSON')).north;
+var east = JSON.parse(localStorage.getItem('boundsJSON')).east;
+var boundsArr = [south, west, north, east];
 
 function getSegments(response) {
   const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${access_token}`;
