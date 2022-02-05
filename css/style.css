@@ -77,17 +77,17 @@ ul {
 }
 
 a {
-    color: red;
+    color: orange;
     text-decoration: none;
 
 }
 
 a:visited {
-    color: red;
+    color: orange;
     text-decoration: none;
 }
 
 a:hover {
-    color: red;
+    color: orange;
     text-decoration: none;
 }
