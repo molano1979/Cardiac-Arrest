@@ -327,22 +327,6 @@ function addMarker(position) {
   }
 }
 
-  google.maps.event.addListener(map, 'bounds_changed', () => {
-    var bounds = map.getBounds();
-    var ne = bounds.getNorthEast();
-    var sw = bounds.getSouthWest();
-    boundsJSON = {
-      'south': sw.lat(),
-      'west': sw.lng(),
-      'north': ne.lat(),
-      'east': ne.lng()
-    }
-    localStorage.setItem('boundsJSON', JSON.stringify(boundsJSON))
-    boundsArr = [boundsJSON.south, boundsJSON.west, boundsJSON.north, boundsJSON.east];
-    console.log(boundsArr)
-  })
-  
-  
 function setMapOnAll(map) {
   for (let i = 0; i < markers.length; i++) {
     markers[i].setMap(map);
@@ -370,8 +354,24 @@ function getLastBounds() {
   }
 }
 
-// document.onload() = {
-//   fetch(authorize, 'https://www.strava.com/oauth/authorize') {
-
-//   }
-// }
+setTimeout( function() {
+  if (map) {
+  map.addListener('bounds_changed', () => {
+    var bounds = map.getBounds();
+    var ne = bounds.getNorthEast();
+    var sw = bounds.getSouthWest();
+    boundsJSON = {
+      'south': sw.lat(),
+      'west': sw.lng(),
+      'north': ne.lat(),
+      'east': ne.lng()
+    }
+    localStorage.setItem('boundsJSON', JSON.stringify(boundsJSON))
+    boundsArr = [boundsJSON.south, boundsJSON.west, boundsJSON.north, boundsJSON.east];
+    console.log('boundsArr: ', boundsArr)
+  });
+  clearTimeout();
+} else {
+  console.log('map api is not ready yet');
+}
+}, 250)

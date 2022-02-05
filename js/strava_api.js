@@ -80,11 +80,4 @@ function showFunction() {
     y.style.display = "none";
   }
 }
-//
 
-//
-//
-//
-//
-//
-//
