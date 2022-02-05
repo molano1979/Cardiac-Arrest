@@ -10,7 +10,7 @@ Published: https://molano1979.github.io/Cardiac-Arrest/
 "An athlete wants to find difficult hills to run or ride in different areas."
 ```
 
-### First we begin with creating a google api map:
+### Based on google and strava APIs:
 
 ```javascript
   map = new google.maps.Map(document.getElementById("map"), {
