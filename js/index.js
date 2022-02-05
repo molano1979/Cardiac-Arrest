@@ -299,7 +299,7 @@ function addMarker(position) {
       animation: google.maps.Animation.BOUNCE,
     });
     markers.push(marker);
-  } else if (markers.length == 2) {
+  } else if (markers.length == 1) {
     const marker = new google.maps.Marker({
       position,
       map,

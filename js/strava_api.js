@@ -61,7 +61,7 @@ function getSegments(response) {
     });
 }
 
-$("#submit").click(hideFunction()); // button with an id="submit" to run the getSegments function after variables have been selected and read by document.querySelector dom, or maybe a <form>? something like that
+// $("#submit").click(hideFunction()); // button with an id="submit" to run the getSegments function after variables have been selected and read by document.querySelector dom, or maybe a <form>? something like that
 
 function hideFunction() {
   var x = document.getElementById("hillCards");
@@ -69,14 +69,15 @@ function hideFunction() {
     x.style.display = "flex";
   } else {
     x.style.display = "none";
+    getSegments();
   }
-  getSegments();
 }
 
 function showFunction() {
   var y = document.getElementById("hillCards");
   if (y.style.display === "flex") {
     y.style.display = "none";
+    getSegments();
   }
 }
 //
