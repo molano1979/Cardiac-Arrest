@@ -17,6 +17,14 @@ function initMap() {
     showTooltip: false,
     showInfoWindow: false,
   });
+  var customStyled = [
+    {
+      featureType: "all",
+      elementType: "labels",
+      stylers: [{ visibility: "off" }],
+    },
+  ];
+  map.set("styles", customStyled);
   map.setTilt(0);
   map.addListener("click", (event) => {
     addMarker(event.latLng);
