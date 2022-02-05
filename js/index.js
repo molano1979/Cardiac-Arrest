@@ -14,6 +14,8 @@ function initMap() {
     center: origin,
     mapTypeId: "terrain",
     streetViewControl: false,
+    showTooltip: false,
+    showInfoWindow: false,
   });
   map.setTilt(0);
   map.addListener("click", (event) => {
