@@ -13,7 +13,9 @@ function initMap() {
     zoom: 12,
     center: origin,
     mapTypeId: "terrain",
+    streetViewControl: false,
   });
+  map.setTilt(0);
   map.addListener("click", (event) => {
     addMarker(event.latLng);
   });
