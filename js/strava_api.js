@@ -55,7 +55,7 @@ function getSegments(response) {
       }
       //
       $("#hillCards").html(segmentList.join(""));
-      showFunction();
+      hideFunction();
     })
     .catch((error) => {
       console.error("Error:", error);
