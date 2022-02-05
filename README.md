@@ -13,12 +13,14 @@ Published: https://molano1979.github.io/Cardiac-Arrest/
 ### First we begin with creating a google api map:
 
 ```javascript
-map = new google.maps.Map(document.getElementById("map"), {
-  zoom: 12,
-  center: origin,
-  mapTypeId: "terrain",
-  streetViewControl: false,
-});
+  map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 12,
+    center: origin,
+    mapTypeId: "terrain",
+    streetViewControl: false,
+    showTooltip: false,
+    showInfoWindow: false,
+  });
 ```
 
 ### Marker's documentation was confusing to navigate.
@@ -34,7 +36,7 @@ function addMarker(position) {
     markers.push(marker);
 ```
 
-## Strava api sample code:
+## Pulling data from strava API:
 
 ```javascript
 function getSegments(response) {
@@ -46,16 +48,16 @@ function getSegments(response) {
 ## Cards within javascript code
 
 ```html
-<div class="col-sm this">
-  <div class="card">
-    <div class="card-body">
-      <p><strong>${name}</strong></p>
-      <div><img src="${profileC}" /></div>
-      <p>Length of climb: ${climbL} feet.</p>
-      <p>Average grade: ${avgGrade}%</p>
-    </div>
-  </div>
-</div>
+<div class="col-sm this" >
+          <div class="card">
+          <div class="card-body">
+          <p><strong>${name}</strong></p>
+          <div><img src=${profileC} /></div>
+          <p>Length of climb: ${climbL} feet.</p>
+          <p>Average grade: ${avgGrade}%</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div>
+          </div>
+          </div>`;
 `;
 ```
 
@@ -150,4 +152,4 @@ function getSegments(response) {
 
 ## Conclusion
 
-Strava api limits your app without automatic refresh function.
+Strava api limits your app key to 6 hours without automatic refresh function.
