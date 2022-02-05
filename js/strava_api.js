@@ -38,6 +38,8 @@ function getSegments(response) {
         var avgGrade = currentSegment.avg_grade;
         var climbL = currentSegment.distance;
         var profileC = currentSegment.elevation_profile;
+        var lats = currentSegment.start_latlng[0];
+        var lons = currentSegment.start_latlng[1];
         let hillsCard = `
           <div class="col-sm this" >
           <div class="card">
@@ -45,7 +47,8 @@ function getSegments(response) {
           <p><strong>${name}</strong></p>
           <div><img src=${profileC} /></div>
           <p>Length of climb: ${climbL} feet.</p>
-          <p>Average grade: ${avgGrade}%</p></div>
+          <p>Average grade: ${avgGrade}%</p>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div>
           </div>
           </div>`;
         segmentList.push(hillsCard);
