@@ -137,3 +137,15 @@ function calculateAndDisplayRoute(directionsService, directionsRenderer) {
     })
     .catch((e) => window.alert("Directions request failed due to " + status));
 }
+
+function getLastBounds() {
+  if (localStorage.getItem('boundsJSON')) {
+    lastBounds = {
+      south: JSON.parse(localStorage.getItem('boundsJSON')).south,
+      west: JSON.parse(localStorage.getItem('boundsJSON')).west,
+      north: JSON.parse(localStorage.getItem('boundsJSON')).north,
+      east: JSON.parse(localStorage.getItem('boundsJSON')).east
+    }
+    return boundsArr = [lastBounds.south, lastBounds.west, lastBounds.north, lastBounds.east];
+  }
+}
