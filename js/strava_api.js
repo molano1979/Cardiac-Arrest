@@ -12,7 +12,9 @@ const minClimb = document.getElementById("minClimb").value;
 const maxClimb = document.getElementById("maxClimb").value;
 
 function getSegments(response) {
+
   boundsArr = getLastBounds();
+
   const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${access_token}`;
   fetch(segmentsUrl, {
     method: "GET",
@@ -51,13 +53,14 @@ function getSegments(response) {
       }
       //
       $("#hillCards").html(segmentList.join(""));
+      hideFunction();
     })
     .catch((error) => {
       console.error("Error:", error);
     });
 }
 
-$("#submit").click(hideFunction()); // button with an id="submit" to run the getSegments function after variables have been selected and read by document.querySelector dom, or maybe a <form>? something like that
+// $("#submit").click(hideFunction()); // button with an id="submit" to run the getSegments function after variables have been selected and read by document.querySelector dom, or maybe a <form>? something like that
 
 function hideFunction() {
   var x = document.getElementById("hillCards");
@@ -65,14 +68,15 @@ function hideFunction() {
     x.style.display = "flex";
   } else {
     x.style.display = "none";
+    getSegments();
   }
-  getSegments();
 }
 
 function showFunction() {
   var y = document.getElementById("hillCards");
   if (y.style.display === "flex") {
     y.style.display = "none";
+    getSegments();
   }
 }
 //
