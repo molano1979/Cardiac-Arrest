@@ -76,7 +76,6 @@ function showFunction() {
   var y = document.getElementById("hillCards");
   if (y.style.display === "flex") {
     y.style.display = "none";
-    getSegments();
   }
 }
 //
