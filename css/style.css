@@ -10,16 +10,84 @@
     position: absolute;
 }
 
+
 .navbar-brand {
     font-weight: 700;
 }
 
 .btn-primary {
-    background-color: crimson;
-    border-color: crimson;
+    background-color: #355C7D;
+    border: none;
+    color: white;
 }
 
+.btn-primary:hover {
+    background-color: #F67280;
+    color: white;
+    border: none;
+}
+
+
+
+.clear {
+    background-color: #355c7d;
+    border: none;
+    border-radius: 4px;
+    padding: 0.3em;
+    color: white;
+    transition: 0.2s;
+}
+
+.clear:hover {
+    background-color: #f67280;
+    color: white;
+    border: none;
+}
+
+
+img.exBig {
+    border-radius: 8px;
+    display: block;
+}
+
+ul {
+    padding: 1em;
+}
+
+
 .card-body {
-    height: 200;
-    width: 200;
+    color: white;
+    background-color: #355C7d;
+    border-radius: 8px;
+    cursor: crosshair;
+
+}
+
+.this {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 1em;
+}
+
+
+.ClimbCards {
+    margin-top: 61vh;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+
+}
+
+a:visited {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    color: orange;
+    text-decoration: none;
 }
