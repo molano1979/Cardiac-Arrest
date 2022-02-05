@@ -4,10 +4,12 @@ const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
-var access_token = "21bf63dea698faa4b7d00d610f84433cf87be1fd";
-const callBackDomain = "file:///G:/my%20drive/bootcamp%20uw/Cardiac-Arrest/index.html";
+var access_token = "09168ff9929035b44297531a834cfba6d9ac6fcf";
+var exchange_token = "2c506b3e48536a6236ac2efc7cc0fd6f8608a23e";
+const callBackDomain = "http://localhost/";
+// const callBackDomain = "file:///G:/my%20drive/bootcamp%20uw/Cardiac-Arrest/index.html/";
 // const callBackDomain = "https://molano1979.github.io/Cardiac-Arrest/";
-const authLink = "https://www.strava.com/oauth/authorize?scope=read,activity:read_all,profile:read_all,read_all&client_id=" + clientID + "&response_type=code&redirect_uri=" + callBackDomain + "strava-call-back.php&approval_prompt=force";
+const authLink = "https://www.strava.com/oauth/authorize?scope=read,activity:read_all,profile:read_all,read_all&client_id=" + clientID + "&response_type=code&redirect_uri=" + callBackDomain + "exchange_token&approval_prompt=force";
 
 const activityType = document.getElementById("activityType").value;
 const minClimb = document.getElementById("minClimb").value;
