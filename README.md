@@ -146,10 +146,6 @@ function getSegments(response) {
 }
 ```
 
-## App
-
-![Quiz is progress](screen.png)
-
 ## Conclusion
 
 Strava api limits your app key to 6 hours without automatic refresh function.
