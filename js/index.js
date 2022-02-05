@@ -64,11 +64,11 @@ function addMarker(position) {
       east: markers[1].position.toJSON().lng
     }
 
-    console.log("S latitude coordinate", boundsJSON.south);
-    console.log("W longitude coordinate", boundsJSON.west);
+    // console.log("S latitude coordinate", boundsJSON.south);
+    // console.log("W longitude coordinate", boundsJSON.west);
 
-    console.log("N latitude coordinate", boundsJSON.north);
-    console.log("E longitude coordinate", boundsJSON.east);
+    // console.log("N latitude coordinate", boundsJSON.north);
+    // console.log("E longitude coordinate", boundsJSON.east);
 
     localStorage.setItem("boundsJSON", JSON.stringify(boundsJSON));
   } else {
