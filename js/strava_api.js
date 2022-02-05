@@ -28,7 +28,15 @@ function getSegments(response) {
     .then((data) => {
       console.log("Success:", data);
       var segmentList = [];
-      for (var i = 0; i < data.segments.length; i++) {
+      var cardTarget = 5;
+      var cardLimit = 3;
+      if (data.segments.length > cardLimit) {
+        cardTarget = 6;
+      } else {
+        cardTarget = data.segments.length;
+      }
+
+      for (var i = 0; i < cardTarget; i++) {
         var currentSegment = data.segments[i];
         // var start = currentSegment.start_latlng;
         // localStorage.setItem("start_latlng", start);
@@ -45,10 +53,10 @@ function getSegments(response) {
           <div class="card">
           <div class="card-body">
           <p><strong>${name}</strong></p>
-          <div><img src=${profileC} /></div>
-          <p>Length of climb: ${climbL} feet.</p>
-          <p>Average grade: ${avgGrade}%</p>
-          <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div>
+          <!--- <div><img src=${profileC} /></div> --->
+          <p>Length: ${climbL} feet.</p>
+          <p>Grade: ${avgGrade}%</p>
+          <!--- <p><a href="https://www.google.com/maps/search/?api=1&query=${lats}%2C${lons}">Starting location</a></p></div> --->
           </div>
           </div>`;
         segmentList.push(hillsCard);
@@ -81,3 +89,19 @@ function showFunction() {
   }
 }
 
+setTimeout(function() {
+  if (map) {
+    map.addListener('bounds_changed', () => {
+      getSegments();
+    })
+  } else {
+    console.log('map is not ready for strava yet');
+  }
+}, 1000)
+
+setInterval( () => {
+  // if current coords are not equal to previous coordinates, update strava data
+  if (boundsArr != boundsJSON) {
+    getSegments();
+  }
+}, 1000)

@@ -1,18 +1,29 @@
+:root {
+    --header-height: 150px;
+    --margin: .7rem;
+    --column-width: 200px;
+}
+
 * {
     margin: 0;
     padding: 0;
 }
 
+/* map height is going to be 100% of the viewport height minus the header */
 #map {
-    height: 60vh;
+    height: calc(100vh - var(--header-height));
     width: 100%;
     overflow: hidden;
     position: absolute;
 }
 
+nav {
+    height: var(--header-height);
+    background-image: url('/assets/headerImg_light@2x.png');
+}
 
 .navbar-brand {
-    font-weight: 700;
+    font-weight: 900;
 }
 
 .btn-primary {
@@ -26,8 +37,6 @@
     color: white;
     border: none;
 }
-
-
 
 .clear {
     background-color: #355c7d;
@@ -54,28 +63,34 @@ ul {
     padding: 1em;
 }
 
-
 .card-body {
-    color: white;
-    background-color: #355C7d;
-    border-radius: 8px;
-    cursor: crosshair;
-
+    color: black;
+    background-color: white;
+    border: 3px solid black;
 }
 
 .this {
     display: flex;
     flex-wrap: wrap;
-    margin: 1em;
+    margin: var(--margin);
 }
 
-
+/* climb cards need to be styled to be less bulky so that the window is not constantly refreshing */
 .ClimbCards {
-    margin-top: 61vh;
+    /* float the cards over the map aligned to the left */
+    position: absolute;
     display: flex;
+    /* flex wrap with a width of 200px will keep all the cards in a column */
     flex-wrap: wrap;
+    width: var(--column-width);
+    margin: auto;
+    max-height: calc(100vh - var(--header-height));
 }
 
+.card {
+    min-width: var(--column-width);
+    text-align: center;
+}
 a {
     color: orange;
     text-decoration: none;
@@ -90,4 +105,13 @@ a:visited {
 a:hover {
     color: orange;
     text-decoration: none;
+}
+
+p strong {
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+p {
+    margin: 0;
 }
