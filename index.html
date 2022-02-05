@@ -22,7 +22,9 @@
     <!-- button needs styling/formatting -->
     <input id="delete-markers" class="clear" type="button" value="Clear Markers" onclick='showFunction()' />
     <!-- it removes the markers and coordinates from the map -->
-
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Instructions
+    </button>
     <!-- user input modal -->
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AnotherModal">
       About Strava
@@ -135,12 +137,60 @@
 
   <div id="map"></div>
   <div id="hillCards" class="ClimbCards"></div>
+  <!-- START INSTRUCTIONS MODAL -->
+
+
+  <!-- Modal -->
+  <div class="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="CenterInfo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Instructions">Instructions on the use of this app.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-warning">The search is performed inside a rectangular boundary,
+              by selecting SW (bottom left) and NE (top right) with markers.
+            </li>
+            <li class="list-group-item list-group-item-primary">For better understaning of climb difficulty, tap "About
+              Strava" button.
+            </li>
+            <li class="list-group-item list-group-item-info">Step 1: Select a South West corner of the search boundary,
+              by clicking on the map.</li>
+            <li class="list-group-item list-group-item-info">Step 2: Select a North East corner of the search boundary,
+              by clicking on the map.</li>
+            <li class="list-group-item list-group-item-info">Step 3: Click the "User Input" button to open a search
+              parameter dialog.</li>
+            <li class="list-group-item list-group-item-info">Step 4: Hit search and watch as the cards populate with
+              hardest hills within the selected parameters.</li>
+
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!--  -->
+
+  <!-- end instructions -->
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly"
     async></script>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
     integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
   </script>
+  <!--  -->
+  <script type="text/javascript">
+    $(window).on('load', function () {
+      $('#myModal').modal('show');
+    });
+  </script>
+  <!--  -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
   </script>

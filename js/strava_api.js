@@ -4,7 +4,7 @@ const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
-var access_token = "ddf302cf38c5079f7af556e71e4146726fb1405c";
+var access_token = "ddab1afabce3ef95516c13e2d7f9f841a307170f";
 const authLink = "https://www.strava.com/oauth/authorize";
 
 const activityType = document.getElementById("activityType").value;

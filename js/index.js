@@ -3,8 +3,8 @@ let markers = [];
 var callback_results;
 
 function initMap() {
-  const directionsService = new google.maps.DirectionsService();
-  const directionsRenderer = new google.maps.DirectionsRenderer();
+  // const directionsService = new google.maps.DirectionsService();
+  // const directionsRenderer = new google.maps.DirectionsRenderer();
   const origin = {
     lat: 47.615,
     lng: -122.235,
@@ -13,7 +13,9 @@ function initMap() {
     zoom: 12,
     center: origin,
     mapTypeId: "terrain",
+    streetViewControl: false,
   });
+  map.setTilt(0);
   map.addListener("click", (event) => {
     addMarker(event.latLng);
   });
