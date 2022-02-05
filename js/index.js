@@ -3,8 +3,8 @@ let markers = [];
 var callback_results;
 
 function initMap() {
-  const directionsService = new google.maps.DirectionsService();
-  const directionsRenderer = new google.maps.DirectionsRenderer();
+  // const directionsService = new google.maps.DirectionsService();
+  // const directionsRenderer = new google.maps.DirectionsRenderer();
   const origin = {
     lat: 47.615,
     lng: -122.235,
