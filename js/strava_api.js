@@ -6,7 +6,7 @@ const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
 var exchange_token = "2c506b3e48536a6236ac2efc7cc0fd6f8608a23e";
 const callBackDomain = "http://localhost/";
-var access_token = "ddab1afabce3ef95516c13e2d7f9f841a307170f";
+var access_token = "b9fae10fd147dccfa1be098a334f7eef2ea67fa6";
 const authLink = "https://www.strava.com/oauth/authorize";
 
 const activityType = document.getElementById("activityType").value;
