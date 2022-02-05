@@ -29,7 +29,12 @@ function closeModal(){
 //Function to close modal if outside click
 function outsideClick(e){
 
-if(e.target== modal){
+if(e.target== modalD){
 modal.style.display = 'none';
     }
 }
+
+
+
+
+
