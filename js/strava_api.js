@@ -6,7 +6,37 @@ const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
 var exchange_token = "2c506b3e48536a6236ac2efc7cc0fd6f8608a23e";
 const callBackDomain = "http://localhost/";
-var access_token = "b9fae10fd147dccfa1be098a334f7eef2ea67fa6";
+// strava token function ///////////////////////////////////
+setTimeout(function () {
+  const tokenURL = `https://www.strava.com/api/v3/oauth/token`;
+
+  var xhr = new XMLHttpRequest();
+  xhr.open("POST", tokenURL);
+
+  xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+  xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+      console.log("status", xhr.status);
+      console.log("responsetext", xhr.responseText);
+      var arrayResponse = JSON.parse(xhr.responseText);
+      var expiration = arrayResponse.expires_in;
+      var access_token = arrayResponse.access_token;
+      localStorage.setItem("access_token", access_token);
+      console.log("Seconds to expiration: %c" + expiration, "color:green");
+      clearTimeout();
+    } else {
+      console.log("%c Refreshing access token", "color:red");
+    }
+  };
+
+  var data = `client_id=${clientID}&client_secret=${secretID}&grant_type=refresh_token&refresh_token=${refreshToken}`;
+
+  xhr.send(data);
+}, 1000);
+////////////////////////////////////////////////////////
+
+var access_token = localStorage.getItem("access_token").value;
 const authLink = "https://www.strava.com/oauth/authorize";
 
 const activityType = document.getElementById("activityType").value;
@@ -14,7 +44,6 @@ const minClimb = document.getElementById("minClimb").value;
 const maxClimb = document.getElementById("maxClimb").value;
 
 function getSegments(response) {
-
   boundsArr = getLastBounds();
 
   const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${access_token}`;
@@ -80,4 +109,3 @@ function showFunction() {
     y.style.display = "none";
   }
 }
-
