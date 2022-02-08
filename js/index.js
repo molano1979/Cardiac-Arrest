@@ -354,7 +354,7 @@ function getLastBounds() {
   }
 }
 
-setTimeout( function() {
+  setTimeout( function() {
   if (map) {
   map.addListener('bounds_changed', () => {
     var bounds = map.getBounds();
@@ -366,6 +366,7 @@ setTimeout( function() {
       'north': ne.lat(),
       'east': ne.lng()
     }
+    debounce(getSegments(), 500);
     localStorage.setItem('boundsJSON', JSON.stringify(boundsJSON))
     boundsArr = [boundsJSON.south, boundsJSON.west, boundsJSON.north, boundsJSON.east];
     console.log('boundsArr: ', boundsArr)
@@ -374,4 +375,4 @@ setTimeout( function() {
 } else {
   console.log('map api is not ready yet');
 }
-}, 250)
+}, 250);

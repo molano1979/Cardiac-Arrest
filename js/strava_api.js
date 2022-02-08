@@ -12,9 +12,10 @@ const authLink = "https://www.strava.com/oauth/authorize";
 const activityType = document.getElementById("activityType").value;
 const minClimb = document.getElementById("minClimb").value;
 const maxClimb = document.getElementById("maxClimb").value;
+var updateQueue = 'false';
 
 function getSegments(response) {
-
+  console.log('getSegments()')
   boundsArr = getLastBounds();
 
   const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${access_token}`;
@@ -89,19 +90,55 @@ function showFunction() {
   }
 }
 
-setTimeout(function() {
-  if (map) {
-    map.addListener('bounds_changed', () => {
-      getSegments();
-    })
-  } else {
-    console.log('map is not ready for strava yet');
-  }
-}, 1000)
+// send a value into an array, check that array once a second.
+// if that array has a value in it, update the segments and clear the array.
 
-setInterval( () => {
-  // if current coords are not equal to previous coordinates, update strava data
-  if (boundsArr != boundsJSON) {
-    getSegments();
-  }
-}, 1000)
+function debounce(func, timeout = 500) {
+  let timer;
+  return () => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
+
+// var delayStravaAPI = setTimeout(() => {
+//   console.log(boundsArr);
+//   console.log(getLastBounds());
+//     // if current coords are not equal to previous coordinates, update strava data
+//     if (updateQueue === 'true') {
+//       getSegments();
+//       updateQueue = 'false';
+//       console.log('calling strava api')
+//     }
+//   }, 1000);
+
+// setTimeout(function () {
+//   if (map) {
+//     map.addListener('bounds_changed', () => {
+//       getSegments();
+//     })
+//   } else {
+//     console.log('map is not ready for strava yet');
+//   }
+// }, 1000)
+// function debounce(func, wait, immediate) {
+// 	var timeout;
+// 	return function() {
+// 		var context = this, args = arguments;
+// 		var later = function() {
+// 			timeout = null;
+// 			if (!immediate) func.apply(context, args);
+// 		};
+// 		var callNow = immediate && !timeout;
+// 		clearTimeout(timeout);
+// 		timeout = setTimeout(later, wait);
+// 		if (callNow) func.apply(context, args);
+// 	};
+// };
+// You'll pass the debounce function the function to execute and the fire rate limit in milliseconds.  Here's an example usage:
+
+// var myEfficientFn = debounce(function() {
+// 	// All the taxing stuff you do
+// }, 250);
+
+// window.addEventListener('resize', myEfficientFn);
