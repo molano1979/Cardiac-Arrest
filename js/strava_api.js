@@ -52,7 +52,7 @@ function getSegments(response) {
   fetch(segmentsUrl, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${current_token}`,
     },
   })
     .then((response) => response.json())
