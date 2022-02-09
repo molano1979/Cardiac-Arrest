@@ -41,7 +41,7 @@ function newToken() {
 
 ////////////////////////////////////////////////////////
 
-var current_token = localStorage.getItem("new_token").value;
+var current_token = localStorage.new_token;
 console.log("Present token:", current_token);
 const authLink = "https://www.strava.com/oauth/authorize";
 
