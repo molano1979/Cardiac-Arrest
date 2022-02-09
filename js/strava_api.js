@@ -7,7 +7,9 @@ const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 var exchange_token = "2c506b3e48536a6236ac2efc7cc0fd6f8608a23e";
 const callBackDomain = "http://localhost/";
 // strava token function ///////////////////////////////////
-setTimeout(function () {
+
+newToken();
+function newToken() {
   const tokenURL = `https://www.strava.com/api/v3/oauth/token`;
 
   var xhr = new XMLHttpRequest();
@@ -21,10 +23,10 @@ setTimeout(function () {
       console.log("responsetext", xhr.responseText);
       var arrayResponse = JSON.parse(xhr.responseText);
       var expiration = arrayResponse.expires_in;
-      var access_token = arrayResponse.access_token;
-      localStorage.setItem("access_token", access_token);
+      var NEW_token = arrayResponse.access_token;
+      localStorage.setItem("new_token", NEW_token);
+
       console.log("Seconds to expiration: %c" + expiration, "color:green");
-      clearTimeout();
     } else {
       console.log("%c Refreshing access token", "color:red");
     }
@@ -33,24 +35,24 @@ setTimeout(function () {
   var data = `client_id=${clientID}&client_secret=${secretID}&grant_type=refresh_token&refresh_token=${refreshToken}`;
 
   xhr.send(data);
-}, 1000);
+}
+
 ////////////////////////////////////////////////////////
 
-var access_token = localStorage.getItem("access_token").value;
+var current_token = localStorage.new_token;
+console.log("Present token:", current_token);
 const authLink = "https://www.strava.com/oauth/authorize";
-
-const activityType = document.getElementById("activityType").value;
-const minClimb = document.getElementById("minClimb").value;
-const maxClimb = document.getElementById("maxClimb").value;
 
 function getSegments(response) {
   boundsArr = getLastBounds();
-
-  const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${access_token}`;
+  const activityType = document.getElementById("activityType").value;
+  const minClimb = document.getElementById("minClimb").value;
+  const maxClimb = document.getElementById("maxClimb").value;
+  const segmentsUrl = `https://www.strava.com/api/v3/segments/explore?bounds=${boundsArr}&activity_type=${activityType}&min_cat=${minClimb}&max_cat=${maxClimb}?access_token=${current_token}`;
   fetch(segmentsUrl, {
     method: "GET",
     headers: {
-      Authorization: `Bearer ${access_token}`,
+      Authorization: `Bearer ${current_token}`,
     },
   })
     .then((response) => response.json())
