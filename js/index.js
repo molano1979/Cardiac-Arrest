@@ -1,7 +1,10 @@
 let map;
 let markers = [];
 var callback_results;
-var south, west, north, east = '';
+var south,
+  west,
+  north,
+  east = "";
 
 function initMap() {
   // const directionsService = new google.maps.DirectionsService();
@@ -312,8 +315,8 @@ function addMarker(position) {
       south: markers[0].position.toJSON().lat,
       west: markers[0].position.toJSON().lng,
       north: markers[1].position.toJSON().lat,
-      east: markers[1].position.toJSON().lng
-    }
+      east: markers[1].position.toJSON().lng,
+    };
 
     // console.log("S latitude coordinate", boundsJSON.south);
     // console.log("W longitude coordinate", boundsJSON.west);
@@ -341,37 +344,47 @@ function deleteMarkers() {
   markers = [];
 }
 
-
 function getLastBounds() {
-  if (localStorage.getItem('boundsJSON')) {
+  if (localStorage.getItem("boundsJSON")) {
     lastBounds = {
-      south: JSON.parse(localStorage.getItem('boundsJSON')).south,
-      west: JSON.parse(localStorage.getItem('boundsJSON')).west,
-      north: JSON.parse(localStorage.getItem('boundsJSON')).north,
-      east: JSON.parse(localStorage.getItem('boundsJSON')).east
-    }
-    return boundsArr = [lastBounds.south, lastBounds.west, lastBounds.north, lastBounds.east];
+      south: JSON.parse(localStorage.getItem("boundsJSON")).south,
+      west: JSON.parse(localStorage.getItem("boundsJSON")).west,
+      north: JSON.parse(localStorage.getItem("boundsJSON")).north,
+      east: JSON.parse(localStorage.getItem("boundsJSON")).east,
+    };
+    return (boundsArr = [
+      lastBounds.south,
+      lastBounds.west,
+      lastBounds.north,
+      lastBounds.east,
+    ]);
   }
 }
 
-setTimeout( function() {
+setTimeout(function () {
   if (map) {
-  map.addListener('bounds_changed', () => {
-    var bounds = map.getBounds();
-    var ne = bounds.getNorthEast();
-    var sw = bounds.getSouthWest();
-    boundsJSON = {
-      'south': sw.lat(),
-      'west': sw.lng(),
-      'north': ne.lat(),
-      'east': ne.lng()
-    }
-    localStorage.setItem('boundsJSON', JSON.stringify(boundsJSON))
-    boundsArr = [boundsJSON.south, boundsJSON.west, boundsJSON.north, boundsJSON.east];
-    console.log('boundsArr: ', boundsArr)
-  });
-  clearTimeout();
-} else {
-  console.log('map api is not ready yet');
-}
-}, 250)
+    map.addListener("bounds_changed", () => {
+      var bounds = map.getBounds();
+      var ne = bounds.getNorthEast();
+      var sw = bounds.getSouthWest();
+      boundsJSON = {
+        south: sw.lat(),
+        west: sw.lng(),
+        north: ne.lat(),
+        east: ne.lng(),
+      };
+      localStorage.setItem("boundsJSON", JSON.stringify(boundsJSON));
+      boundsArr = [
+        boundsJSON.south,
+        boundsJSON.west,
+        boundsJSON.north,
+        boundsJSON.east,
+      ];
+      console.log("%c New search boundaries: ", "color:green");
+      console.log(boundsArr);
+    });
+    clearTimeout();
+  } else {
+    console.log("%c Google map API is not ready!", "color:red");
+  }
+}, 250);
