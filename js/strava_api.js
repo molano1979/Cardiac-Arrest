@@ -27,8 +27,6 @@ function newToken() {
       localStorage.setItem("new_token", NEW_token);
 
       console.log("Seconds to expiration: %c" + expiration, "color:green");
-
-      clearTimeout();
     } else {
       console.log("%c Refreshing access token", "color:red");
     }
