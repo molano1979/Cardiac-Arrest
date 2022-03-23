@@ -1,0 +1,44 @@
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="LogoPlaceHolder.PNG" width="30" height="30" class="d-inline-block align-top" alt="">
+      Cardiac Arrest
+    </a>
+    <!-- button needs styling/formatting -->
+    <input id="delete-markers" class="clear" type="button" value="Clear Markers" onclick='hideFunction()' />
+    <!-- it removes the markers and coordinates from the map -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Instructions
+    </button>
+    <!-- user input modal -->
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AnotherModal">
+      About Strava
+    </button>
+
+    <!--Start of Modal-->
+
+    <!-- Modal -->
+    <div class="modal fade" id="AnotherModal" tabindex="-1" role="dialog" aria-labelledby="AnotherModalTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+
+          {{> navigation_climbs}}
+
+          <div class="modal-content">
+            <img src="https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png"
+              alt="Hawk Hill image example" class="exBig" style="display: block;">
+
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+{{> navigation_user}}
+
+  </nav>
