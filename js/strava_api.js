@@ -1,8 +1,8 @@
 // http://localhost/exchange_token?state=&code=33e1b24614158d76f9e9be3335dddec19a49268f&scope=read,read_all
 
-const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
-const clientID = 77288;
-const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
+const secretID = process.env.secretID;
+const clientID = process.env.clientID;
+const refreshToken = process.env.refreshToken;
 // access token must be flexible, as it gets refreshed every 6 hours
 let exchange_token = "";
 const callBackDomain = "http://localhost/";
