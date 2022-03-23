@@ -1,5 +1,3 @@
-// http://localhost/exchange_token?state=&code=33e1b24614158d76f9e9be3335dddec19a49268f&scope=read,read_all
-
 const secretID = process.env.secretID;
 const clientID = process.env.clientID;
 const refreshToken = process.env.refreshToken;
