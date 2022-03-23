@@ -4,7 +4,7 @@ const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
 const clientID = 77288;
 const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
-var exchange_token = "2c506b3e48536a6236ac2efc7cc0fd6f8608a23e";
+let exchange_token = "";
 const callBackDomain = "http://localhost/";
 // strava token function ///////////////////////////////////
 
@@ -12,7 +12,7 @@ newToken();
 function newToken() {
   const tokenURL = `https://www.strava.com/api/v3/oauth/token`;
 
-  var xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   xhr.open("POST", tokenURL);
 
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
@@ -21,9 +21,9 @@ function newToken() {
     if (xhr.readyState === 4) {
       console.log("status", xhr.status);
       console.log("responsetext", xhr.responseText);
-      var arrayResponse = JSON.parse(xhr.responseText);
-      var expiration = arrayResponse.expires_in;
-      var NEW_token = arrayResponse.access_token;
+      let arrayResponse = JSON.parse(xhr.responseText);
+      let expiration = arrayResponse.expires_in;
+      let NEW_token = arrayResponse.access_token;
       localStorage.setItem("new_token", NEW_token);
 
       console.log("Seconds to expiration: %c" + expiration, "color:green");
@@ -32,14 +32,14 @@ function newToken() {
     }
   };
 
-  var data = `client_id=${clientID}&client_secret=${secretID}&grant_type=refresh_token&refresh_token=${refreshToken}`;
+  let data = `client_id=${clientID}&client_secret=${secretID}&grant_type=refresh_token&refresh_token=${refreshToken}`;
 
   xhr.send(data);
 }
 
 ////////////////////////////////////////////////////////
 
-var current_token = localStorage.new_token;
+let current_token = localStorage.new_token;
 console.log("Present token:", current_token);
 const authLink = "https://www.strava.com/oauth/authorize";
 
@@ -58,19 +58,19 @@ function getSegments(response) {
     .then((response) => response.json())
     .then((data) => {
       console.log("Success:", data);
-      var segmentList = [];
-      for (var i = 0; i < data.segments.length; i++) {
-        var currentSegment = data.segments[i];
-        // var start = currentSegment.start_latlng;
+      let segmentList = [];
+      for (let i = 0; i < data.segments.length; i++) {
+        let currentSegment = data.segments[i];
+        // let start = currentSegment.start_latlng;
         // localStorage.setItem("start_latlng", start);
-        // var end = currentSegment.end_latlng;
+        // let end = currentSegment.end_latlng;
         // localStorage.setItem("end_latlng", end);
-        var name = currentSegment.name;
-        var avgGrade = currentSegment.avg_grade;
-        var climbL = currentSegment.distance;
-        var profileC = currentSegment.elevation_profile;
-        var lats = currentSegment.start_latlng[0];
-        var lons = currentSegment.start_latlng[1];
+        let name = currentSegment.name;
+        let avgGrade = currentSegment.avg_grade;
+        let climbL = currentSegment.distance;
+        let profileC = currentSegment.elevation_profile;
+        let lats = currentSegment.start_latlng[0];
+        let lons = currentSegment.start_latlng[1];
         let hillsCard = `
           <div class="col-sm this" >
           <div class="card">
@@ -96,7 +96,7 @@ function getSegments(response) {
 // $("#submit").click(hideFunction()); // button with an id="submit" to run the getSegments function after variables have been selected and read by document.querySelector dom, or maybe a <form>? something like that
 
 function hideFunction() {
-  var x = document.getElementById("hillCards");
+  let x = document.getElementById("hillCards");
   if (x.style.display === "none") {
     x.style.display = "flex";
   } else {
@@ -106,7 +106,7 @@ function hideFunction() {
 }
 
 function showFunction() {
-  var y = document.getElementById("hillCards");
+  let y = document.getElementById("hillCards");
   if (y.style.display === "flex") {
     y.style.display = "none";
   }
