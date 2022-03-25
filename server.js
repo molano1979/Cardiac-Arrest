@@ -1,6 +1,6 @@
-const secretID = process.env.SECRET_ID;
-const clientID = process.env.CLIENT_ID;
-const refreshToken = process.env.REFRESH_TOKEN;
+// const secretID = process.env.SECRET_ID;
+// const clientID = process.env.CLIENT_ID;
+// const refreshToken = process.env.REFRESH_TOKEN;
 // ////////
 const path = require("path");
 const express = require("express");
@@ -45,5 +45,3 @@ app.use(routes);
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
-
-module.exports = { secretID, clientID, refreshToken };
