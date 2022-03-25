@@ -1,8 +1,9 @@
-const secretID = process.env.secretID;
-const clientID = process.env.clientID;
-const refreshToken = process.env.refreshToken;
+let exchange_token = "7f032912936b4564eac02475096ad292defb694a";
+const { secretID } = require("../../../server");
+const { clientID } = require("../../../server");
+const { refreshToken } = require("../../../server");
 // access token must be flexible, as it gets refreshed every 6 hours
-let exchange_token = "";
+
 const callBackDomain = "http://localhost/";
 // strava token function ///////////////////////////////////
 
