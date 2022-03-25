@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,7 +15,7 @@
 </head>
 
 <body>
-<nav class="navbar navbar-light bg-light">
+  <nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <img src="../img/LogoPlaceHolder.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Cardiac Arrest
@@ -37,9 +38,9 @@
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-
-          {{body}}
-
+<div class="modal-header">
+          {{{body}}}
+</div>
           <div class="modal-content">
             <img src="https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png"
               alt="Hawk Hill image example" class="exBig" style="display: block;">
@@ -97,6 +98,8 @@
       <!--End of Modal-->
 
   </nav>
+
+
   <div id="map"></div>
   <div id="hillCards" class="ClimbCards"></div>
 
