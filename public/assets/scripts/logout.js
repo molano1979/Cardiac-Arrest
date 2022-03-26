@@ -1,16 +1,14 @@
 const logout = async () => {
-  // TODO: Add a comment describing the functionality of this expression
-  const response = await fetch('/api/users/logout', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+  const response = await fetch("/api/users/logout", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
   });
 
   if (response.ok) {
-    // TODO: Add a comment describing the functionality of this statement
-    document.location.replace('/login');
+    document.location.replace("/login");
   } else {
-    alert('Failed to log out');
+    alert("Failed to log out");
   }
 };
 
-document.querySelector('#logout').addEventListener('click', logout);
+document.querySelector("#logout").addEventListener("click", logout);
