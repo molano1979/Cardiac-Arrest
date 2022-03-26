@@ -11,12 +11,12 @@
 
 </head>
 <body>
- <nav class="navbar navbar-light bg-light">
+<nav class="navbar navbar-light bg-light">
     <a class="navbar-brand" href="#">
       <img src="../img/LogoPlaceHolder.png" width="30" height="30" class="d-inline-block align-top" alt="">
       Cardiac Arrest
     </a>
-    <input id="delete-markers" class="clear" type="button" value="Clear Markers" onclick='hideFunction()' />
+    <input id="delete-markers" class="clear" type="button" value="Refresh Cards" onclick='hideFunction()' />
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
       Instructions
     </button>
@@ -27,7 +27,7 @@
       aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
-<div class="modal-header">
+    <div class="modal-header">
                       <p1><a href="https://en.wikipedia.org/wiki/Strava" style="color: black;"> Strava </a>is the social network
               for athletes.
 
@@ -69,7 +69,7 @@
               <li>HC (Hors Categorie) > 80000</li>
             </ul>
 
-</div>
+    </div>
           <div class="modal-content">
             <img src="https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png"
               alt="Hawk Hill image example" class="exBig" style="display: block;">
@@ -116,12 +116,12 @@
         </div>
       </div>
 
-  </nav>
+
+
+</nav>
 
   <div id="map"></div>
   <div id="hillCards" class="ClimbCards"></div>
-
-
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly"
     async></script>
