@@ -1,4 +1,34 @@
-            <p1><a href="https://en.wikipedia.org/wiki/Strava" style="color: black;"> Strava </a>is the social network
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <script src="../../assets/scripts/index.js"></script>
+  <title>Cardiac Arrest</title>
+
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+      <img src="../img/LogoPlaceHolder.png" width="30" height="30" class="d-inline-block align-top" alt="">
+      Cardiac Arrest
+    </a>
+    <input id="delete-markers" class="clear" type="button" value="Refresh Cards" onclick='hideFunction()' />
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+      Instructions
+    </button>
+   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#AnotherModal">
+      About Strava
+    </button>
+   <div class="modal fade" id="AnotherModal" tabindex="-1" role="dialog" aria-labelledby="AnotherModalTitle"
+      aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+    <div class="modal-header">
+                      <p1><a href="https://en.wikipedia.org/wiki/Strava" style="color: black;"> Strava </a>is the social network
               for athletes.
 
               Record an activity and it goes to your Strava feed, where your friends and followers can share their own
@@ -38,3 +68,80 @@
               <li>Cat 1 > 64000</li>
               <li>HC (Hors Categorie) > 80000</li>
             </ul>
+
+    </div>
+          <div class="modal-content">
+            <img src="https://support.strava.com/hc/article_attachments/360016064251/Climb_Categorization_1_-_Eng.png"
+              alt="Hawk Hill image example" class="exBig" style="display: block;">
+
+          </div>
+          <div class="modal-footer">
+
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+      User Input
+    </button>
+
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+      aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Cardiac Arrest Search Options</h5>
+
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            Activity type:
+            <select id="activityType">
+              <option value="running">Running</option>
+              <option value="riding">Riding</option>
+            </select> <br> Minimum climb rating:<input type="number" id="minClimb" value="2" min="2" max="4">
+            <br> Maximum climb rating:<input type="number" id="maxClimb" value="1" min="1" max="3">
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="submit"
+              onclick='hideFunction()'>Search and Close</button>
+          </div>
+        </div>
+      </div>
+
+
+
+</nav>
+
+  <div id="map"></div>
+  <div id="hillCards" class="ClimbCards"></div>
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly"
+    async></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous">
+  </script>
+  <!--  -->
+  <script type="text/javascript">
+    $(window).on('load', function () {
+      $('#myModal').modal('show');
+    });
+  </script>
+  <!--  -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous">
+  </script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
+  </script>
+
+  <script src="../../assets/scripts/strava_api.js"></script>
+
+</body>
