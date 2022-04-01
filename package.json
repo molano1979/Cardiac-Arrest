@@ -2,17 +2,18 @@
     "name": "user-list",
     "version": "1.0.0",
     "description": "",
-    "main": "server.js",
+    "main": "index.js",
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "node server.js",
+        "start": "node index.js",
         "seed": "node seeds/seed.js"
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "engines": {
-        "node": "16.x"
+        "node": "16.x",
+        "npm": "8.x"
       },
     "dependencies": {
         "bcrypt": "^5.0.1",
