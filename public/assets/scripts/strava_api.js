@@ -26,7 +26,7 @@ function newToken() {
       let NEW_token = arrayResponse.access_token;
       localStorage.setItem("new_token", NEW_token);
 
-      console.log("Time to expiration: %c" + minutes, "color:green");
+      console.log("Minutes to expiration: %c" + minutes, "color:green");
     } else {
       console.log("%c Refreshing access token", "color:red");
     }
