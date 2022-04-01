@@ -1,17 +1,38 @@
-<h2>Login</h2>
 
-<form class="form login-form">
-  <div class="form-group">
-    <label for="userName-login">Username:</label>
-    <input class="form-input" type="text" id="userName-login" />
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link rel="stylesheet" href="../css/style.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <title>Cardiac Arrest</title>
+  </head>
+<body>
+<div class="container">
+  <div class="card">
+    <div class="inner-box">
+      <div class="card-front">
+          <h2>LOGIN</h2>
+            <form class="form" id="login-form">
+              <div class="form-group">
+              <label for="email-login">User Name:</label>
+              <input type="text" class="form-control" id="email-login" placeholder="Your user Id" required>
+              <br>
+              <label for="password-login">Password:</label>
+              <input type="password" class="form-control" id="password-login" placeholder="Password" required>
+              </div>
+              <div class="form-group">
+              <button type="submit" class="btn btn-primary">Login</button>
+              </div> 
+            </form>
+            <a href=signup>
+            <button type="button" class="btn btn-primary" >I'm New Here</button> </a>
+      </div>
+    </div>
   </div>
-  <div class="form-group">
-    <label for="password-login">Password:</label>
-    <input class="form-input" type="password" id="password-login" />
-  </div>
-  <div class="form-group">
-    <button class="btn btn-primary" type="submit">login</button>
-  </div>
-</form>
+</div>
 
-<script src="../public/assets/scripts/login.js"></script>
+<script src="../assets/scripts/login.js"></script>
+</body>
