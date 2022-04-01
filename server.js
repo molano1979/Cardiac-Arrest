@@ -14,6 +14,15 @@ const sequelize = require("./config/connection");
 // Create a new sequelize store using the express-session package
 const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
+const strava = require('strava-v3')
+
+strava.config({
+  "access_token"  : process.env.STRAVA_ACCESS_TOKEN,
+  "client_id"     : process.env.STRAVA_CLIENT_ID,
+  "client_secret" : process.env.STRAVA_CLIENT_SECRET,
+  "redirect_uri"  : process.env.STRAVA_REDIRECT_URI
+});
+
 const app = express();
 const PORT = process.env.PORT || 3001;
 

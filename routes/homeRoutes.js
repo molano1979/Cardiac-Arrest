@@ -3,7 +3,7 @@ const { User } = require("../models");
 const withAuth = require("../utils/auth");
 
 // TODO: Add a comment describing the functionality of the withAuth middleware
-router.get("/login", withAuth, async (req, res) => {
+router.get("/", withAuth, async (req, res) => {
   try {
     const userData = await User.findAll({
       attributes: { exclude: ["password"] },
