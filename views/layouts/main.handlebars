@@ -134,6 +134,41 @@
   <div id="map"></div>
   <div id="hillCards" class="ClimbCards"></div>
   
+
+  <div class="modal fade hide" id="myModal" tabindex="-1" role="dialog" aria-labelledby="CenterInfo" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="Instructions">Instructions on the use of this app.</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <ul class="list-group">
+            <li class="list-group-item list-group-item-warning">The search is performed inside a rectangular boundary of
+              the window.
+            </li>
+            <li class="list-group-item list-group-item-primary">For better understaning of climb difficulty, tap "About
+              Strava" button.
+            </li>
+            <li class="list-group-item list-group-item-info">Step 1: Search boundary is your entire google map window.
+            </li>
+            <li class="list-group-item list-group-item-info">Step 2: Select your search boundary by moving the map
+              and/or zooming in & out on the map.</li>
+            <li class="list-group-item list-group-item-info">Step 3: Click the "User Input" button to open a search
+              parameter dialog.</li>
+            <li class="list-group-item list-group-item-info">Step 4: Hit search and watch as the cards populate with
+              hardest hills within the selected parameters.</li>
+
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
   
 
   <script
