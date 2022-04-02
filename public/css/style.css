@@ -11,21 +11,26 @@
   position: absolute;
 }
 
+body {
+  background-image: url(../img/mainbg@2x.png)
+}
+
 .navbar-brand {
   font-weight: 700;
 }
 
 .btn-primary {
-  background-color: lightgray;
+  background-color: white;
   border: 3px solid black;
   color: black;
   border-radius: 0px;
+  font-weight: 900;
 }
 
 .btn-primary:hover {
-  background-color: darkgray;
+  background-color: orangered;
   color: black;
-  border: 3px solid orangered;
+  border: 3px solid black;
   border-radius: 0px;
 }
 
@@ -161,6 +166,7 @@ a:hover {
     border: 3px solid black;
     background: white;
     border-radius: 0px;
+    font-weight: 700;
 }
 
 ::placeholder {
