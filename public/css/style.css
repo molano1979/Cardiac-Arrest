@@ -15,8 +15,19 @@ body {
   background-image: url(../img/mainbg@2x.png)
 }
 
+.navbar {
+  background-image: url(../img/headerImg_light.svg);
+}
+
+.logo {
+  margin: auto 0;
+}
+
 .navbar-brand {
-  font-weight: 700;
+  font-size: 2em;
+  font-weight: 900;
+  padding: 15px 0px 15px 15px;
+  margin: auto 0;
 }
 
 .btn-primary {
