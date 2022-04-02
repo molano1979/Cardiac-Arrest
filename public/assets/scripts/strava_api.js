@@ -1,8 +1,9 @@
-const secretID = process.env.secretID;
-const clientID = process.env.clientID;
-const refreshToken = process.env.refreshToken;
+let exchange_token = "7f032912936b4564eac02475096ad292defb694a";
+const secretID = "7a1eb612657bf210784d436768af70a8059e6fa5";
+const clientID = "77288";
+const refreshToken = "5a2c4a24cfe92d8637da700572af31d64d5728b7";
 // access token must be flexible, as it gets refreshed every 6 hours
-let exchange_token = "";
+
 const callBackDomain = "http://localhost/";
 // strava token function ///////////////////////////////////
 
@@ -17,14 +18,15 @@ function newToken() {
 
   xhr.onreadystatechange = function () {
     if (xhr.readyState === 4) {
-      console.log("status", xhr.status);
-      console.log("responsetext", xhr.responseText);
+      console.log("Response status", xhr.status);
+
       let arrayResponse = JSON.parse(xhr.responseText);
       let expiration = arrayResponse.expires_in;
+      let minutes = Math.floor(expiration / 60);
       let NEW_token = arrayResponse.access_token;
       localStorage.setItem("new_token", NEW_token);
 
-      console.log("Seconds to expiration: %c" + expiration, "color:green");
+      console.log("Minutes to expiration: %c" + minutes, "color:green");
     } else {
       console.log("%c Refreshing access token", "color:red");
     }
