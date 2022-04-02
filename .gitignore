@@ -3,4 +3,7 @@ desktop.ini
 Thumbs.db
 node_modules/
 .env
+<<<<<<< HEAD
+=======
 npm-debug.log
+>>>>>>> 854538abcac42de89237e12d533a1edea39cb1a5
