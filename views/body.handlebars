@@ -93,13 +93,11 @@
       </div>
 
     </div>
-    {{#if logged_in}}
-    <script src="../public/assets/scripts/logout.js"></script>
-
-    <nav>
-      <button class="btn btn-primary" id="logout"> Logout </button>
-    </nav>
-    {{/if}}
+    
+ 
+    <button class="btn btn-primary" id="logout"> Logout </button>
+   
+    
 
     <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
       User Input
@@ -135,7 +133,8 @@
   <div id="map"></div>
   <div id="hillCards" class="ClimbCards"></div>
   
-  
+
+<script src="../assets/scripts/logout.js"></script>
 
   <script
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbRJvIbu1ZsBTN0-gPCt3y04HF98el2Yo&callback=initMap&v=weekly"
