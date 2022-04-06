@@ -4,9 +4,11 @@
 
 Published: https://molano1979.github.io/Cardiac-Arrest/
 
+Link to Heroku https://floating-temple-42927.herokuapp.com/login
 
 
-![landingpage](./public/img/landingpagepic.png)
+
+![landingpage](./public/img/landingpage.png)
 ```
 An athlete wants to find difficult hills to run or ride in different areas.
 ```
