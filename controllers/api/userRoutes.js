@@ -12,7 +12,7 @@ router.post("/", async (req, res) => {
       res.status(200).json(userData);
     });
   } catch (err) {
-    console.log(`Error ${err}`);
+    console.log(`Error ${err} ${req.body}`);
     res.status(500).json(err);
   }
 });

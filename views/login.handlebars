@@ -11,7 +11,7 @@
   </head>
 <body>
 <div class="container">
-  <div class="card">
+  <div class="card map-bg">
     <div class="inner-box">
       <div class="card-front">
           <h2>LOGIN</h2>
@@ -30,6 +30,35 @@
             <a href=signup>
             <button type="button" class="btn btn-primary" >I'm New Here</button> </a>
       </div>
+    </div>
+  </div>
+</div>
+////////////////////
+<div class="container" style="display: none;">
+  <div class="card map-bg">
+    <div class="inner-box">
+      <div class="card-front">
+          <h2>SIGN UP</h2>
+            <form class="form" id="signup-form">
+                <div class="form-group">
+                <label for="name-signup" class="form-label">Name:</label>
+            <input type="text" class="form-control" id="name-signup" placeholder="Your Name"required>
+              </div><br>
+              <div class="form-group">
+              <label for="email-signup" class="form-label">Email address:</label>
+            <input type="email" class="form-control" id="email-signup" placeholder="Email" required>
+              <br>
+              <label for="password-signup" class="form-label">Password:</label>
+            <input type="password" minlength="8" class="form-control" id="password-signup" placeholder="Password"required>
+              </div>
+              <div class="form-group">
+              <button type="submit" class="btn btn-primary">Signup</button>
+              </div> 
+            </form><a href=login>
+              <button type="button" class="btn btn-primary">Login</button>
+              </a>
+            
+                  </div>
     </div>
   </div>
 </div>
